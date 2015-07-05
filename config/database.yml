@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: ping_development
+
+test:
+  <<: *default
+  database: ping_test
+
+
+production:
+  <<: *default
+  database: ping_production
+  username: ping
+  password: <%= ENV['PING_DATABASE_PASSWORD'] %>
